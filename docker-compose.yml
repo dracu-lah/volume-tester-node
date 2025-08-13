@@ -1,14 +1,17 @@
+version: "3.9"
+
 services:
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: node_app
     ports:
       - "3000:3000"
     volumes:
-      - .:/usr/src/app
       - uploads_data:/usr/src/app/uploads
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
     command: npm start
 
 volumes:
